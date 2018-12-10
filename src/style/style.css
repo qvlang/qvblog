@@ -1,0 +1,7 @@
+.gg{
+  display: flex;
+}
+.g{
+  flex: 1;
+  transform: translate(10,10);
+}
