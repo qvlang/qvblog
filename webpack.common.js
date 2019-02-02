@@ -1,6 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// 创建多个实例
+const extractCSS = new ExtractTextPlugin('stylesheets/[name]-one.css');
+const extractLESS = new ExtractTextPlugin('stylesheets/[name]-two.css');
 const Autoprefixer = require('autoprefixer')
 module.exports = {
   entry: path.resolve(__dirname, 'src/main.js'),
@@ -17,20 +21,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
+        use: extractCSS.extract([
           'css-loader',
           'postcss-loader'
-        ]
+        ])
       },
       {
-        test: /\.less$/,
-        use: [
-          'style-loader',
+        test: /\.less$/i,
+        use: extractLESS.extract([
           'css-loader',
-          'postcss-loader',
           'less-loader'
-        ]
+        ])
       },
       {
         test: /\.(jpg|png)$/,
@@ -58,6 +59,8 @@ module.exports = {
       template: path.resolve(__dirname, 'public/index.html')
     }),
     new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
-    Autoprefixer
+    Autoprefixer,
+    extractCSS,
+    extractLESS
   ]
 }

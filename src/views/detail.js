@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 import { actionCreators } from './store'
 import Nav from '../components/common/nav'
 import BasePage from '../components/home'
