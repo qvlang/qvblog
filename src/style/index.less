@@ -1,0 +1,34 @@
+@import './baseColor.less';
+.clearfix::after {
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.base-button {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 6px;
+  background: @btnColor;
+  color: #fff;
+  cursor: pointer;
+}
+.base-border {
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+// 单行文字超出缩略
+.text-omission {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+// 多行文字超出缩略,适用于webkit浏览器
+.mut-omission {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

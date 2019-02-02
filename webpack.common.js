@@ -1,9 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const webpack = require('webpack')
+const Autoprefixer = require('autoprefixer')
 module.exports = {
-  mode: 'development',
   entry: path.resolve(__dirname, 'src/main.js'),
   output: {
     filename: '[name].[hash].js',
@@ -29,23 +28,36 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'less-loader',
+          'postcss-loader',
+          'less-loader'
         ]
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use:{
+          loader: 'url-loader',
+          options: {
+            limit: 8192
+          }
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.less','css'],
+    alias:{
+      '@': path.resolve(__dirname,'src')
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html')
     }),
     new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
-  ],
-  devServer: {
-    host: 'localhost',
-    contentBase: path.resolve(__dirname, 'dist'),
-    port: 3000,
-    hot: true
-  }
+    Autoprefixer
+  ]
 }

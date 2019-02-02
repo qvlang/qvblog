@@ -1,0 +1,60 @@
+.content-wrap {
+  width: 100%;
+  background: @bgColor;
+  box-sizing: border-box;
+  padding: 15px;
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    background: @bgColor;
+    .left-content {
+      width: 65%;
+      margin-right: 4%;
+      float: left;
+      .list-wrap {
+        width: 100%;
+        height: 300px;
+        position: relative;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #999;
+        background: white;
+        .span-all {
+          margin-right: 13px;
+        }
+        .list-title {
+          color: rgb(22, 160,133);
+          margin-bottom: 15px;
+        }
+        .delete-article {
+          position: absolute;
+          top: 15px;
+          right: 25px;
+        }
+        .list-class {
+          color: #999;
+          margin-bottom: 15px;
+        }
+        .list-content {
+          display: flex;
+          margin-bottom: 10px;
+          .show-content {
+            margin-left: 8px;
+            line-height: 20px;
+            letter-spacing: 2px;
+            &:extend(.mut-omission);
+          }
+        }
+        .list-commit {
+          float: right;
+        }
+      }
+    }
+    .right-content {
+      width: 31%;
+      float: left;
+    }
+  }
+}
