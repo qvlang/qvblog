@@ -14,7 +14,7 @@ module.exports= merge(common,{
     host: 'localhost',
     contentBase: path.resolve(__dirname, 'dist'),
     port: 3000,
-    hot: true,
+    hot: true
     // proxy: {
     //   '/api': {
     //     target: 'http://localhost:8888',

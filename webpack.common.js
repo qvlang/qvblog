@@ -10,7 +10,8 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/main.js'),
   output: {
     filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/public/'
   },
   module: {
     rules: [
@@ -30,6 +31,7 @@ module.exports = {
         test: /\.less$/i,
         use: extractLESS.extract([
           'css-loader',
+          'postcss-loader',
           'less-loader'
         ])
       },

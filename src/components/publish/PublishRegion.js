@@ -79,7 +79,7 @@ class PublishRegion extends Component{
       title: this.state.inputValue,
       content: draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
     }
-    Axios.post('http://localhost:8888/api/article',articleInfo)
+    Axios.post('/article',articleInfo)
     .then((res)=>{
       const { success ,article} = res.data
       //如果发表成功则将返回文章保存同时跳转到我的博客界面

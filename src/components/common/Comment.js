@@ -33,7 +33,7 @@ export default class Comment extends Component {
       value: ''
     })
     if(this.state.value) {
-      Axios.post('http://localhost:8888/api/message',{
+      Axios.post('/message',{
         id: this.props.id,
         content: this.state.value,
         publisher: this.props.name

@@ -9,7 +9,7 @@ export default class ShowComment extends Component {
     }
   }
   componentDidMount () {
-    Axios.get('http://localhost:8888/api/message',{
+    Axios.get('/message',{
       id: this.props.id
     }).then(res=>{
       const { comment, success } = res.data;

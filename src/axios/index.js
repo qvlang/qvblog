@@ -68,7 +68,7 @@ axios.interceptors.response.use(response => {
   	return Promise.resolve(error.response)
 })
 
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = 'http://localhost:8888/api'
 //设置默认请求头
 axios.defaults.headers = {
     'Content-Type': 'application/x-www-form-urlencoded',

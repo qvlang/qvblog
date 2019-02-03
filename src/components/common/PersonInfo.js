@@ -92,7 +92,7 @@ export default class PersonInfo extends Component {
       case '登录':
         // 清空输入框
         this.handleClearInput()
-        Axios.post('http://localhost:8888/api/user/login',{
+        Axios.post('/user/login',{
           username: this.state.userValue,
           password: this.state.pwdValue
         }).then(res=>{
@@ -113,7 +113,7 @@ export default class PersonInfo extends Component {
       case '注册':
         // 清空输入框
         this.handleClearInput()
-        Axios.post('http://localhost:8888/api/user/register',{
+        Axios.post('/user/register',{
           username: this.state.userValue,
           password: this.state.pwdValue
         }).then(res=>{

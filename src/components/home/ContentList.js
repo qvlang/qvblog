@@ -39,7 +39,7 @@ export default class ContentList extends Component {
     )
   }
   handleDelete (id) {
-    Axios.post('http://localhost:8888/api/article/delete',{id})
+    Axios.post('/article/delete',{id})
     .then(res=>{
       const {success} = res.data;
       //删除成功则更新前端文章数组将删除文章从中删除

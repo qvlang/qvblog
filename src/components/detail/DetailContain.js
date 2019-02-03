@@ -10,7 +10,7 @@ export default class DetailContain extends Component {
     }
   }
   componentDidMount () {
-    Axios.get('http://localhost:8888/api/article',{id: this.props.id})
+    Axios.get('/article',{id: this.props.id})
     .then(res=>{
       const { success, articles,message} = res.data;
       if(success) {

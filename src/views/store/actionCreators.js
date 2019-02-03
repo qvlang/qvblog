@@ -36,7 +36,7 @@ export const hasAll= ({
 })
 export const  getArticles = (page,rows)=>{
   return (dispatch)=>{
-    Axios.get('http://localhost:8888/api/articles',{page,rows})
+    Axios.get('/articles',{page,rows})
     .then(res=>{
       const {success,articles} = res.data;
       //如果正确返回则修改文章 否者提示文章已到底
